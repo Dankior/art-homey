@@ -1779,14 +1779,16 @@ button.is-loading {
 .slider__dots {
   position: absolute;
   bottom: 12px;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  right: auto;
   z-index: 6;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6px;
+  gap: 20px;
   pointer-events: none;
+  width: max-content;
 }
 
 .slider__dots .slider__dot {
