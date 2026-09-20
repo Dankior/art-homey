@@ -1690,6 +1690,7 @@ button.is-loading {
 
 .slider {
   position: relative;
+  width: 100%;
   aspect-ratio: 4/3;
   overflow: hidden;
   margin-bottom: 16px;
@@ -2037,9 +2038,10 @@ button.is-loading {
 }
 
 .logo img {
-  height: 50px;
-  width: auto;
-  display: block;
+  width: 60px;      /* нужную ширину подставь сама */
+  height: auto;       /* высота посчитается сама, пропорционально */
+  max-width: 100%;    /* чтобы не вылезала за пределы родителя на мобильных */
+  object-fit: contain; /* доп. страховка на случай если родитель как-то ограничит высоту */
 }
 
 .production {
