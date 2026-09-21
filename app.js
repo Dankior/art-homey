@@ -45,6 +45,26 @@ function handleFormSubmit(formId) {
   });
 }
 
+// Единый формат телефона во всех формах сайта.
+document.querySelectorAll('input[type="tel"]').forEach((input) => {
+  input.inputMode = 'tel';
+  input.addEventListener('input', () => {
+    const digits = input.value.replace(/\D/g, '').replace(/^8/, '7').slice(0, 11);
+    if (!digits) {
+      input.value = '';
+      return;
+    }
+    const normalized = digits.padEnd(1, '');
+    let formatted = '+7';
+    if (normalized.length > 1) formatted += ` (${normalized.slice(1, 4)}`;
+    if (normalized.length >= 4) formatted += ')';
+    if (normalized.length > 4) formatted += ` ${normalized.slice(4, 7)}`;
+    if (normalized.length > 7) formatted += `-${normalized.slice(7, 9)}`;
+    if (normalized.length > 9) formatted += `-${normalized.slice(9, 11)}`;
+    input.value = formatted;
+  });
+});
+
 handleFormSubmit('leadForm');
 handleFormSubmit('ctaForm');
 handleFormSubmit('quizForm');
@@ -637,7 +657,17 @@ initProjectGalleries();
 function initScrollReveal() {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const groups = [
+    { selector: '.subhero--materials .subhero__inner',
+    variant: 'reveal-up'},
+    { selector: '.materials-catalog .materials-group__head',
+      variant: 'reveal-left' },
+    { selector: '.materials-catalog .materials-options article',
+      variant: 'reveal-up' },
+    { selector: '.materials-catalog .hardware-grid article',
+      variant: 'reveal-up' },
     { selector: '.projects h2, .projects .section-lead, .link-more', variant: 'reveal-up' },
+    { selector: '.materials-intro .eyebrow, .materials-intro h1, .materials-intro__lead',
+      variant: 'reveal-up' },
     { selector: '.project-card, .projects__grid--full > *', variant: 'reveal-up' },
     { selector: '.case-study__heading, .case-study__main-photo, .case-study__gallery > *, .case-study__content', variant: 'reveal-up' },
     { selector: '.materials__heading, .material-card', variant: 'reveal-up' },

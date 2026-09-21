@@ -231,7 +231,7 @@ button.is-loading {
 
 .hero__image {
   aspect-ratio: 4/5;
-  background: linear-gradient(135deg, rgba(34,29,25,.05), rgba(34,29,25,.25)), url('images/hero-interior.png') center/cover;
+  background: linear-gradient(135deg, rgba(34,29,25,.05), rgba(34,29,25,.25)), url('images/hero-interior.webp') center/cover;
   color: var(--white);
   display: flex;
   align-items: center;
@@ -1790,7 +1790,7 @@ button.is-loading {
 }
 
 .slider__slide--image {
-  background: url('images/hero-interior.png') center/cover;
+  background: url('images/hero-interior.webp') center/cover;
 }
 
 /* Разные фото для карточек проектов */
@@ -2903,7 +2903,7 @@ h2 {
   aspect-ratio: auto;
   min-height: 650px;
   overflow: hidden;
-  background-image: linear-gradient(90deg, rgba(17,17,17,.08), rgba(17,17,17,.12)), url('images/hero-interior.png');
+  background-image: linear-gradient(90deg, rgba(17,17,17,.08), rgba(17,17,17,.12)), url('images/hero-interior.webp');
   background-size: cover;
   background-position: center;
   color: transparent;
@@ -3528,7 +3528,7 @@ h2 {
 
 .case-study__main-photo {
   min-height: 540px;
-  background: url('images/hero-interior.png') center/cover;
+  background: url('images/hero-interior.webp') center/cover;
 }
 
 .case-study__gallery {
@@ -4434,7 +4434,7 @@ h2 {
   position: absolute;
   inset: 0;
   background: linear-gradient(90deg, rgba(10,8,6,0.55) 0%, rgba(10,8,6,0.25) 45%, rgba(10,8,6,0.15) 100%),
-              url('images/hero-interior.png') center/cover no-repeat;
+              url('images/hero-interior.webp') center/cover no-repeat;
   z-index: 0;
 }
 
@@ -4767,4 +4767,141 @@ h2 {
         height: 3px;
         margin-top: 20px;
     }
+}
+
+.materials-intro {
+    padding: clamp(90px, 12vw, 170px) 0;
+    background: var(--soft);
+    overflow: hidden;
+}
+
+.materials-intro__inner {
+    max-width: 1100px;
+}
+
+.materials-intro h1 {
+    max-width: 850px;
+    margin: 14px 0 28px;
+    color: var(--text);
+    font-size: clamp(48px, 8vw, 112px);
+    font-weight: 800;
+    line-height: .9;
+    letter-spacing: -.07em;
+    text-transform: uppercase;
+}
+
+.materials-intro__lead {
+    max-width: 620px;
+    color: var(--muted);
+    font-size: clamp(16px, 1.5vw, 20px);
+    line-height: 1.6;
+}
+
+.materials-intro .reveal-item {
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+.materials-intro .eyebrow {
+    --reveal-delay: 0ms;
+}
+
+.materials-intro h1 {
+    --reveal-delay: 120ms;
+}
+
+.materials-intro__lead {
+    --reveal-delay: 240ms;
+}
+
+@media (max-width: 600px) {
+    .materials-intro {
+        padding: 76px 0 86px;
+    }
+
+    .materials-intro h1 {
+        font-size: clamp(42px, 14vw, 70px);
+        line-height: .94;
+    }
+
+    .materials-intro__lead {
+        font-size: 15px;
+    }
+}
+
+/* Шапка страницы «Материалы» */
+
+.subhero--materials {
+    background:
+        linear-gradient(90deg, rgba(17, 17, 17, .82), rgba(17, 17, 17, .25)),
+        url("images/hero-interior.webp") center / cover no-repeat;
+}
+
+.subhero--materials .subhero__inner {
+    min-height: 490px;
+}
+
+.subhero--materials h1 {
+    max-width: 900px;
+    font-size: clamp(48px, 8vw, 110px);
+    line-height: .92;
+    letter-spacing: -.06em;
+    text-transform: uppercase;
+}
+
+.subhero--materials .subhero__inner > p:last-child {
+    max-width: 620px;
+    color: rgba(255, 255, 255, .75);
+    font-size: 18px;
+    line-height: 1.55;
+}
+
+@media (max-width: 600px) {
+    .subhero--materials .subhero__inner {
+        min-height: 390px;
+    }
+
+    .subhero--materials h1 {
+        font-size: clamp(42px, 13vw, 68px);
+    }
+
+    .subhero--materials .subhero__inner > p:last-child {
+        font-size: 16px;
+    }
+}
+
+.materials-catalog .materials-group__head,
+.materials-catalog .materials-options article,
+.materials-catalog .hardware-grid article {
+    will-change: opacity, transform, filter;
+}
+
+.materials-catalog .materials-group__head {
+    transition-delay: 80ms;
+}
+
+/* Mobile pass: keep the menu and fixed actions from covering page content. */
+@media (max-width: 900px) {
+  body { padding-bottom: 82px; }
+
+  .header { z-index: 100; }
+  .header .header__inner { position: relative; }
+  .header .nav,
+  .home-page .header--transparent .nav,
+  .projects-page .nav {
+    z-index: 110;
+    max-height: calc(100vh - 76px);
+    overflow-y: auto;
+  }
+
+  .mobile-actions { min-height: 74px; padding: 6px 8px; }
+  .mobile-actions a { min-height: 60px; }
+}
+
+@media (max-width: 600px) {
+  .project-filters { margin: 22px 0 28px; padding: 16px 0; gap: 14px; }
+  .project-filter-group { align-items: flex-start; gap: 7px; }
+  .project-filter-label { width: 100%; min-width: 0; margin-bottom: 2px; font-size: 13px; }
+  .project-filter { padding: 9px 13px; font-size: 13px; }
+  .mobile-actions { grid-template-columns: .9fr 1.25fr 1.1fr; }
+  .mobile-actions__messengers { gap: 0; }
 }

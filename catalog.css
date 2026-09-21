@@ -76,7 +76,7 @@
 
 .product-card__image {
     height: 280px;
-    background: linear-gradient(135deg, #d6cec3, #756b60) url('images/hero-interior.png') center/cover;
+    background: linear-gradient(135deg, #d6cec3, #756b60) url('images/hero-interior.webp') center/cover;
     position: relative
 }
 
