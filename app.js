@@ -836,18 +836,9 @@ if (projectFilters) {
     item.innerHTML = `<button class="nav-tree__trigger" type="button" aria-expanded="false">Покупателю <span>⌄</span></button><ul class="nav-tree__menu"><li><a href="index.html#order">Бесплатная консультация</a></li><li><a href="materials.html">Материалы и фурнитура</a></li><li><a href="faq.html">Частые вопросы</a></li><li><a href="privacy.html">Политика конфиденциальности</a></li><li><a href="warranty.html">Гарантия</a></li></ul>`;
     nav.insertBefore(item, nav.querySelector('.nav__cta') || null);
     const trigger = item.querySelector('.nav-tree__trigger');
-    const isHome = document.body.classList.contains('home-page');
     trigger.addEventListener('click', () => {
       const open = item.classList.toggle('is-open');
       trigger.setAttribute('aria-expanded', String(open));
-    });
-    item.addEventListener('mouseenter', () => {
-      trigger.style.setProperty('background', isHome ? 'rgba(255,255,255,.12)' : 'rgba(17,17,17,.06)', 'important');
-      trigger.style.setProperty('color', isHome ? '#fff' : 'inherit', 'important');
-    });
-    item.addEventListener('mouseleave', () => {
-      trigger.style.setProperty('background', 'transparent', 'important');
-      trigger.style.setProperty('color', 'inherit', 'important');
     });
   });
 })();
@@ -879,5 +870,3 @@ if (projectFilters) {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 })();
-
-
