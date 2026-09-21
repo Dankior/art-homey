@@ -73,17 +73,50 @@ const burgerBtn = document.getElementById('burgerBtn');
 const nav = document.getElementById('nav');
 
 if (burgerBtn && nav) {
+  const openMenu = () => {
+    burgerBtn.classList.add('open');
+    nav.classList.add('open');
+    burgerBtn.setAttribute('aria-expanded', 'true');
+    burgerBtn.setAttribute('aria-label', 'Закрыть меню');
+    document.body.classList.add('menu-open');
+    document.documentElement.classList.add('menu-open');
+  };
+
+  const closeMenu = () => {
+    burgerBtn.classList.remove('open');
+    nav.classList.remove('open');
+    burgerBtn.setAttribute('aria-expanded', 'false');
+    burgerBtn.setAttribute('aria-label', 'Открыть меню');
+    document.body.classList.remove('menu-open');
+    document.documentElement.classList.remove('menu-open');
+  };
+
   burgerBtn.addEventListener('click', () => {
-    const isOpen = burgerBtn.classList.toggle('open');
-    nav.classList.toggle('open');
-    burgerBtn.setAttribute('aria-expanded', isOpen);
+    if (nav.classList.contains('open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
+  // Close on link click
   nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      burgerBtn.classList.remove('open');
-      nav.classList.remove('open');
-    });
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('open')) {
+      closeMenu();
+      burgerBtn.focus();
+    }
+  });
+
+  // Close if resized to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900 && nav.classList.contains('open')) {
+      closeMenu();
+    }
   });
 }
 

@@ -1121,6 +1121,43 @@ button.is-loading {
   }
 }
 
+/* Final responsive guardrails: all pages remain usable from 320px upward. */
+button, input, textarea, select { max-width: 100%; }
+pre, code, .table-wrap, .comparison-table { max-width: 100%; overflow-x: auto; }
+
+@media (max-width: 900px) {
+  .container { padding-inline: clamp(16px, 4vw, 24px); }
+  .header__inner { min-height: 68px; padding-block: 12px; }
+  .header__inner .logo img { width: min(180px, 48vw); height: auto; }
+  .hero { padding-block: clamp(40px, 9vw, 72px); }
+  .hero__inner, .service__inner, .faq__inner { grid-template-columns: 1fr; }
+  .hero__image { order: -1; }
+  .hero__image img { width: 100%; max-height: 58vh; object-fit: cover; }
+  .section-head, .catalog-nav__intro { gap: 18px; }
+  .footer .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 20px; }
+  .footer .footer__brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 600px) {
+  html { font-size: 15px; }
+  .container { padding-inline: 16px; }
+  .header__inner { gap: 12px; }
+  .header__inner .logo { min-width: 0; }
+  .header__inner .logo img { width: min(150px, 52vw); }
+  .burger { flex: 0 0 auto; }
+  .hero__text h1, .page-hero h1 { font-size: clamp(2rem, 10vw, 3rem); }
+  .hero__lead { font-size: 1rem; }
+  .hero__form, .cta__form { max-width: none; width: 100%; }
+  .hero__form input, .hero__form button, .cta__form input, .cta__form button { width: 100%; min-height: 50px; }
+  .catalog-nav__grid { grid-template-columns: 1fr; }
+  .footer .footer__grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer .footer__brand { grid-column: auto; }
+  .footer .footer__brand .logo img { width: min(260px, 80vw); }
+  .footer__contacts { flex-direction: column; gap: 8px; }
+  .section { padding-block: 48px; }
+  .mobile-actions { left: 0; right: 0; width: 100%; }
+}
+
 @media (max-width: 900px) {
   .subhero { min-height: 410px; }
   .subhero h1 { font-size: clamp(2.6rem, 10vw, 5rem); }
@@ -4904,4 +4941,434 @@ h2 {
   .project-filter { padding: 9px 13px; font-size: 13px; }
   .mobile-actions { grid-template-columns: .9fr 1.25fr 1.1fr; }
   .mobile-actions__messengers { gap: 0; }
+}
+
+/* Final responsive guardrails */
+button, input, textarea, select { max-width: 100%; }
+pre, code, .table-wrap, .comparison-table { max-width: 100%; overflow-x: auto; }
+@media (max-width: 600px) {
+  html { font-size: 15px; }
+  .container { padding-inline: 16px; }
+  .header__inner { gap: 12px; }
+  .header__inner .logo img { width: min(150px, 52vw); }
+  .hero__text h1, .page-hero h1 { font-size: clamp(2rem, 10vw, 3rem); }
+  .hero__form, .cta__form { max-width: none; width: 100%; }
+  .hero__form input, .hero__form button, .cta__form input, .cta__form button { width: 100%; min-height: 50px; }
+  .catalog-nav__grid { grid-template-columns: 1fr; }
+  .footer .footer__grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer .footer__brand { grid-column: auto; }
+  .footer__contacts { flex-direction: column; gap: 8px; }
+  .section { padding-block: 48px; }
+}
+
+/* =========================================================
+   2026 STANDARD MOBILE HEADER & MENU (clean, accessible, no bugs)
+   ========================================================= */
+
+/* Base header layout — logo left, actions right */
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 72px;
+  padding: 12px 20px;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 110;
+}
+.logo img {
+  display: block;
+  width: min(160px, 42vw);
+  height: auto;
+}
+
+/* Desktop nav */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+/* Burger — hidden on desktop */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  z-index: 110;
+  -webkit-tap-highlight-color: transparent;
+}
+.burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+.burger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.burger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.burger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Transparent header overrides */
+.header--transparent .burger {
+  color: #fff;
+}
+.header--transparent .burger span {
+  background: #fff;
+}
+.header--transparent .logo img {
+  filter: brightness(0) invert(1);
+}
+
+/* ========== MOBILE (max-width: 900px) ========== */
+@media (max-width: 900px) {
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .header--transparent {
+    position: absolute;
+    background: transparent;
+    border: none;
+  }
+
+  .header__inner {
+    min-height: 64px;
+    padding: 10px 16px;
+    position: relative;
+  }
+
+  .header__phone {
+    display: none !important;
+  }
+
+  .burger {
+    display: flex !important;
+    color: inherit;
+  }
+
+  /* Full-screen mobile menu */
+  .nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 88px 24px 40px;
+    background: rgba(18, 14, 12, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    gap: 0;
+  }
+
+  .nav.open {
+    display: flex !important;
+  }
+
+  .nav a {
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+    padding: 0 8px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.92) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav a:hover,
+  .nav a:focus-visible {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff !important;
+  }
+
+  .nav a[aria-current="page"] {
+    color: var(--accent, #d7af65) !important;
+  }
+
+  /* Nav-tree (Покупателю) inside mobile menu */
+  .nav-tree {
+    display: block !important;
+    width: 100%;
+    border: none !important;
+    min-height: auto !important;
+    background: transparent !important;
+  }
+
+  .nav-tree__trigger {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 56px;
+    padding: 0 8px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.92) !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .nav-tree__trigger span {
+    font-size: 0.9em;
+    transition: transform 0.2s;
+  }
+
+  .nav-tree.is-open .nav-tree__trigger span {
+    transform: rotate(180deg);
+  }
+
+  .nav-tree__menu {
+    position: static !important;
+    display: none;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    list-style: none;
+  }
+
+  .nav-tree.is-open .nav-tree__menu {
+    display: block !important;
+  }
+
+  .nav-tree__menu li a {
+    min-height: 48px;
+    padding-left: 24px !important;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .nav-tree__menu li a:hover {
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: #fff !important;
+  }
+
+  /* Body scroll lock when menu open */
+  html.menu-open,
+  body.menu-open {
+    overflow: hidden !important;
+    touch-action: none;
+  }
+
+  /* Keep logo and burger above the menu */
+  .header .logo,
+  .header .burger {
+    position: relative;
+    z-index: 110;
+  }
+
+  /* When menu is open on transparent header — make header solid */
+  .header--transparent:has(.nav.open),
+  .header--transparent.menu-open {
+    background: rgba(18, 14, 12, 0.98);
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 380px) {
+  .logo img {
+    width: min(130px, 48vw);
+  }
+  .nav a,
+  .nav-tree__trigger {
+    font-size: 1.1rem;
+    min-height: 52px;
+  }
+}
+
+/* Prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .burger span,
+  .nav,
+  .nav-tree__trigger span {
+    transition: none !important;
+  }
+}
+
+/* Desktop: keep header__right as flex group */
+@media (min-width: 901px) {
+  .header__right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .burger {
+    display: none !important;
+  }
+  .nav {
+    display: flex !important;
+    position: static !important;
+    background: transparent !important;
+    padding: 0 !important;
+    inset: auto !important;
+    overflow: visible !important;
+  }
+  .nav a {
+    color: inherit;
+    border: none !important;
+    min-height: auto;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .header--transparent .nav a {
+    color: rgba(255,255,255,0.92);
+  }
+}
+
+/* Force standard order: logo LEFT, actions RIGHT on all viewports */
+.header__inner > .logo {
+  order: 0 !important;
+}
+.header__inner > .nav {
+  order: 1 !important;
+}
+.header__inner > .header__right {
+  order: 2 !important;
+  margin-left: auto;
+}
+
+@media (max-width: 900px) {
+  .header__inner > .logo {
+    order: 0 !important;
+  }
+  .header__inner > .header__right {
+    order: 1 !important;
+    margin-left: auto;
+  }
+  .header__inner > .nav {
+    order: 0 !important; /* not in flow when fixed */
+  }
+}
+
+/* Stronger mobile menu overrides — full screen, clean 2026 style */
+@media (max-width: 900px) {
+  .header .nav,
+  .home-page .header--transparent .nav,
+  .projects-page .header .nav {
+    display: none !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100dvh !important;
+    margin: 0 !important;
+    padding: 90px 24px 100px !important;
+    background: rgba(14, 10, 8, 0.97) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    z-index: 90 !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .header .nav.open,
+  .home-page .header--transparent .nav.open,
+  .projects-page .header .nav.open {
+    display: flex !important;
+  }
+
+  .header .nav a,
+  .home-page .header--transparent .nav a,
+  .projects-page .header .nav a {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-height: 58px !important;
+    padding: 0 4px !important;
+    font-size: 1.35rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.03em !important;
+    color: rgba(255,255,255,0.94) !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.12) !important;
+    text-align: left !important;
+    text-transform: none !important;
+  }
+
+  .header .nav a:hover,
+  .header .nav a:focus-visible {
+    background: rgba(255,255,255,0.07) !important;
+    color: #fff !important;
+  }
+
+  /* Keep logo + burger on top of full-screen menu */
+  .header .logo,
+  .header .burger,
+  .header .header__right {
+    position: relative;
+    z-index: 110 !important;
+  }
+
+  /* When menu open — header stays dark */
+  body.menu-open .header,
+  body.menu-open .header--transparent {
+    background: rgba(14, 10, 8, 0.97) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .header .nav.open,
+  .home-page .header--transparent .nav.open {
+    height: 100% !important;
+    min-height: 100dvh !important;
+    max-height: 100dvh !important;
+  }
 }
