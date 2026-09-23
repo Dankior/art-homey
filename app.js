@@ -45,6 +45,7 @@ function handleFormSubmit(formId) {
   });
 }
 
+<<<<<<< HEAD
 // Единый формат телефона во всех формах сайта.
 document.querySelectorAll('input[type="tel"]').forEach((input) => {
   input.inputMode = 'tel';
@@ -65,6 +66,8 @@ document.querySelectorAll('input[type="tel"]').forEach((input) => {
   });
 });
 
+=======
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
 handleFormSubmit('leadForm');
 handleFormSubmit('ctaForm');
 handleFormSubmit('quizForm');
@@ -657,6 +660,7 @@ initProjectGalleries();
 function initScrollReveal() {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const groups = [
+<<<<<<< HEAD
     { selector: '.subhero--materials .subhero__inner',
     variant: 'reveal-up'},
     { selector: '.materials-catalog .materials-group__head',
@@ -668,6 +672,9 @@ function initScrollReveal() {
     { selector: '.projects h2, .projects .section-lead, .link-more', variant: 'reveal-up' },
     { selector: '.materials-intro .eyebrow, .materials-intro h1, .materials-intro__lead',
       variant: 'reveal-up' },
+=======
+    { selector: '.projects h2, .projects .section-lead, .link-more', variant: 'reveal-up' },
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
     { selector: '.project-card, .projects__grid--full > *', variant: 'reveal-up' },
     { selector: '.case-study__heading, .case-study__main-photo, .case-study__gallery > *, .case-study__content', variant: 'reveal-up' },
     { selector: '.materials__heading, .material-card', variant: 'reveal-up' },
@@ -849,6 +856,17 @@ if (projectFilters) {
   footer.innerHTML = `<div class="container footer__inner footer__grid"><div class="footer__brand"><a href="index.html" class="logo"><img src="images/logo.png" alt="ART HOMEY — студия индивидуальной мебели"></a><p>Москва и область</p><small>Индивидуальная мебель в Москве и области</small></div><div><h3>Услуги</h3><a href="process.html">Этапы работы</a><a href="projects.html">Портфолио</a><a href="about.html">О нас и производство</a></div><div><h3>Покупателю</h3><a href="index.html#order">Бесплатная консультация</a><a href="materials.html">Материалы и фурнитура</a><a href="faq.html">Частые вопросы</a><a href="privacy.html">Политика конфиденциальности</a><a href="warranty.html">Гарантия</a></div><div class="footer__contacts"><h3>Контакты</h3><a href="tel:+79060561819">+7 906 056-18-19</a><a href="mailto:arthomey@yandex.ru">arthomey@yandex.ru</a><span>Ежедневно, 09:00–21:00</span></div></div><div class="container footer__bottom"><span>© 2026 ART HOMEY</span><a class="footer__legal-link" href="privacy.html">Политика конфиденциальности</a><span>Информация не является публичной офертой</span></div>`;
 })();
 
+<<<<<<< HEAD
+=======
+(function initMaterialsStyles() {
+  if (!document.querySelector('.materials-page')) return;
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'materials-extra.css';
+  document.head.appendChild(link);
+})();
+
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
 (function initSharedMessengers() {
   if (document.querySelector('.desktop-messengers')) return;
   const node = document.createElement('div');
@@ -866,10 +884,25 @@ if (projectFilters) {
     item.innerHTML = `<button class="nav-tree__trigger" type="button" aria-expanded="false">Покупателю <span>⌄</span></button><ul class="nav-tree__menu"><li><a href="index.html#order">Бесплатная консультация</a></li><li><a href="materials.html">Материалы и фурнитура</a></li><li><a href="faq.html">Частые вопросы</a></li><li><a href="privacy.html">Политика конфиденциальности</a></li><li><a href="warranty.html">Гарантия</a></li></ul>`;
     nav.insertBefore(item, nav.querySelector('.nav__cta') || null);
     const trigger = item.querySelector('.nav-tree__trigger');
+<<<<<<< HEAD
+=======
+    const isHome = document.body.classList.contains('home-page');
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
     trigger.addEventListener('click', () => {
       const open = item.classList.toggle('is-open');
       trigger.setAttribute('aria-expanded', String(open));
     });
+<<<<<<< HEAD
+=======
+    item.addEventListener('mouseenter', () => {
+      trigger.style.setProperty('background', isHome ? 'rgba(255,255,255,.12)' : 'rgba(17,17,17,.06)', 'important');
+      trigger.style.setProperty('color', isHome ? '#fff' : 'inherit', 'important');
+    });
+    item.addEventListener('mouseleave', () => {
+      trigger.style.setProperty('background', 'transparent', 'important');
+      trigger.style.setProperty('color', 'inherit', 'important');
+    });
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
   });
 })();
 
@@ -900,3 +933,24 @@ if (projectFilters) {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 })();
+<<<<<<< HEAD
+=======
+
+/* Shared footer for all inner pages */
+(function initSharedFooter() {
+  const footer = document.querySelector('.site-footer');
+  if (!footer) return;
+  footer.className = 'footer';
+  footer.innerHTML = `
+    <div class="container footer__inner footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="ART HOMEY — студия индивидуальной мебели"></a>
+        <p>Москва и область</p><small>Индивидуальная мебель в Москве и области</small>
+      </div>
+      <div><h3>Услуги</h3><a href="process.html">Этапы работы</a><a href="projects.html">Портфолио</a><a href="about.html">О нас и производство</a></div>
+      <div><h3>Покупателю</h3><a href="index.html#order">Бесплатная консультация</a><a href="materials.html">Материалы и фурнитура</a><a href="privacy.html">Политика конфиденциальности</a><a href="warranty.html">Гарантия</a></div>
+      <div class="footer__contacts"><h3>Контакты</h3><a href="tel:+79060561819">+7 906 056-18-19</a><a href="mailto:arthomey@yandex.ru">arthomey@yandex.ru</a><span>Ежедневно, 09:00–21:00</span></div>
+    </div>
+    <div class="container footer__bottom"><span>© 2026 ART HOMEY</span><a class="footer__legal-link" href="privacy.html">Политика конфиденциальности</a><span>Информация не является публичной офертой</span></div>`;
+})();
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d

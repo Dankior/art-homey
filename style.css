@@ -231,7 +231,11 @@ button.is-loading {
 
 .hero__image {
   aspect-ratio: 4/5;
+<<<<<<< HEAD
   background: linear-gradient(135deg, rgba(34,29,25,.05), rgba(34,29,25,.25)), url('images/hero-interior.webp') center/cover;
+=======
+  background: linear-gradient(135deg, rgba(34,29,25,.05), rgba(34,29,25,.25)), url('images/hero-interior.png') center/cover;
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
   color: var(--white);
   display: flex;
   align-items: center;
@@ -1044,11 +1048,16 @@ button.is-loading {
 .timeline__item:nth-child(3n) .timeline__photo { background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&h=750&fit=crop'); }
 
 .legal {
+<<<<<<< HEAD
   padding: 80px 0;
+=======
+  padding: 95px 0;
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
   background: var(--soft);
 }
 
 .legal__content {
+<<<<<<< HEAD
   display: block;
   width: min(100% - 40px, 860px);
   max-width: 860px;
@@ -1120,6 +1129,45 @@ button.is-loading {
     line-height: 1.65;
   }
 }
+=======
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  max-width: 1120px;
+  padding: clamp(28px, 5vw, 70px);
+}
+
+.legal__kicker,
+.legal__updated {
+  grid-column: 1 / -1;
+}
+
+.legal__kicker {
+  margin-bottom: 8px !important;
+  color: var(--accent) !important;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.legal__updated { margin-bottom: 48px; }
+
+.legal__content h2,
+.legal__content > p:not(.legal__kicker):not(.legal__updated) {
+  margin: 0;
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+}
+
+.legal__content h2 {
+  padding-right: 35px;
+  color: var(--accent);
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.legal__content > p:not(.legal__kicker):not(.legal__updated) { color: #55585e; }
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
 
 @media (max-width: 900px) {
   .subhero { min-height: 410px; }
@@ -1303,6 +1351,18 @@ button.is-loading {
 .home-page main > .showcase { order: 4; }
 .home-page main > #materials { order: 5; }
 
+<<<<<<< HEAD
+=======
+/* Homepage reading order */
+.home-page main { display: flex; flex-direction: column; }
+.home-page main > section { order: 10; }
+.home-page main > #projects { order: 1; }
+.home-page main > #case { order: 2; }
+.home-page main > #process { order: 3; }
+.home-page main > .showcase { order: 4; }
+.home-page main > #materials { order: 5; }
+
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
 /* Shared footer fallback for inner pages before JS enhancement */
 .site-footer { background: #111; color: #fff; border-top: 4px solid var(--accent); }
 .site-footer a { color: #aaa; }
@@ -1399,6 +1459,7 @@ button.is-loading {
   background: transparent;
 }
 
+<<<<<<< HEAD
 /* Final override: buyer menu matches the other portfolio navigation links */
 .projects-page .nav-tree {
   display: flex;
@@ -1442,6 +1503,8 @@ button.is-loading {
   transform: rotate(180deg);
 }
 
+=======
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
 /* Buyer container must match the other homepage nav items */
 .home-page .header--transparent .nav-tree,
 .home-page .header--transparent .nav-tree:hover,
@@ -1767,7 +1830,10 @@ button.is-loading {
 
 .slider {
   position: relative;
+<<<<<<< HEAD
   width: 100%;
+=======
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
   aspect-ratio: 4/3;
   overflow: hidden;
   margin-bottom: 16px;
@@ -1790,7 +1856,11 @@ button.is-loading {
 }
 
 .slider__slide--image {
+<<<<<<< HEAD
   background: url('images/hero-interior.webp') center/cover;
+=======
+  background: url('images/hero-interior.png') center/cover;
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
 }
 
 /* Разные фото для карточек проектов */
@@ -1841,6 +1911,7 @@ button.is-loading {
   display: flex;
   align-items: center;
   justify-content: center;
+<<<<<<< HEAD
   opacity: 1;
   z-index: 5;
   transition: background 0.2s, transform 0.2s;
@@ -1849,6 +1920,14 @@ button.is-loading {
 .slider__arrow:hover {
   background: var(--white);
   transform: translateY(-50%) scale(1.08);
+=======
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.slider:hover .slider__arrow {
+  opacity: 1;
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
 }
 
 .slider__arrow--prev { left: 12px; }
@@ -1857,6 +1936,7 @@ button.is-loading {
 .slider__dots {
   position: absolute;
   bottom: 12px;
+<<<<<<< HEAD
   left: 50%;
   transform: translateX(-50%);
   right: auto;
@@ -1871,6 +1951,13 @@ button.is-loading {
 
 .slider__dots .slider__dot {
   pointer-events: auto;
+=======
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
 }
 
 .slider__dot {
@@ -1887,6 +1974,29 @@ button.is-loading {
   background: var(--white);
 }
 
+<<<<<<< HEAD
+=======
+/* на мобильном стрелки всегда видны — hover нет смысла ждать */
+@media (max-width: 800px) {
+  .slider__arrow {
+    opacity: 1;
+  }
+}
+
+/* Keep both carousel controls available on every project card. */
+.slider:hover .slider__arrow--prev,
+.slider:hover .slider__arrow--next,
+.slider__arrow--prev,
+.slider__arrow--next {
+  z-index: 5;
+}
+.slider:hover .slider__arrow--next,
+.slider:hover .slider__arrow--prev {
+  display: flex !important;
+  opacity: 1 !important;
+}
+
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
 .projects__grid--full {
   grid-template-columns: 1fr;
   gap: 64px;
@@ -2115,10 +2225,16 @@ button.is-loading {
 }
 
 .logo img {
+<<<<<<< HEAD
   width: 60px;      /* нужную ширину подставь сама */
   height: auto;       /* высота посчитается сама, пропорционально */
   max-width: 100%;    /* чтобы не вылезала за пределы родителя на мобильных */
   object-fit: contain; /* доп. страховка на случай если родитель как-то ограничит высоту */
+=======
+  height: 50px;
+  width: auto;
+  display: block;
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
 }
 
 .production {
@@ -2903,7 +3019,11 @@ h2 {
   aspect-ratio: auto;
   min-height: 650px;
   overflow: hidden;
+<<<<<<< HEAD
   background-image: linear-gradient(90deg, rgba(17,17,17,.08), rgba(17,17,17,.12)), url('images/hero-interior.webp');
+=======
+  background-image: linear-gradient(90deg, rgba(17,17,17,.08), rgba(17,17,17,.12)), url('images/hero-interior.png');
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
   background-size: cover;
   background-position: center;
   color: transparent;
@@ -3136,6 +3256,11 @@ h2 {
 .cta__privacy a:hover { border-bottom-color: var(--white); }
 
 .footer {
+<<<<<<< HEAD
+=======
+  padding: 55px 0;
+  background: #111;
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
   color: var(--white);
 }
 
@@ -3528,7 +3653,11 @@ h2 {
 
 .case-study__main-photo {
   min-height: 540px;
+<<<<<<< HEAD
   background: url('images/hero-interior.webp') center/cover;
+=======
+  background: url('images/hero-interior.png') center/cover;
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
 }
 
 .case-study__gallery {
@@ -4434,7 +4563,11 @@ h2 {
   position: absolute;
   inset: 0;
   background: linear-gradient(90deg, rgba(10,8,6,0.55) 0%, rgba(10,8,6,0.25) 45%, rgba(10,8,6,0.15) 100%),
+<<<<<<< HEAD
               url('images/hero-interior.webp') center/cover no-repeat;
+=======
+              url('images/hero-interior.png') center/cover no-repeat;
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
   z-index: 0;
 }
 
@@ -4713,6 +4846,7 @@ h2 {
   max-width: none;
   background: transparent;
 }
+<<<<<<< HEAD
 
 .service-content .btn-light {
     display: inline-flex;
@@ -5494,3 +5628,5 @@ h2 {
     width: 106px;
   }
 }
+=======
+>>>>>>> 618610a1360e7d74d3f19b36d1c0a959569f0e9d
